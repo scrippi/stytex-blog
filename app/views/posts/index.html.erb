@@ -2,6 +2,24 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<% @posts.each do |post| %>
+    <div class="row">
+      <article class="col-12-xs">
+          <h2><%= link_to post.subject, post_path(post) %></h2>
+          <%= post.content %>
+          <div class="post-short-footer">
+            <p class="pull-left">
+              <i class="fa fa-calendar"></i> <%= post.created_at %>
+            </p>
+            <p class="pull-right">
+              <i class="fa fa-comment"></i> Comment
+            </p>
+          </div>
+      </article>
+    </div>
+<% end %>
+
+<!--
 <table class="table table-striped">
   <thead>
     <tr>
@@ -40,7 +58,7 @@
     <% end %>
   </tbody>
 </table>
-
+-->
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_post_path,
             :class => 'btn btn-primary' %>

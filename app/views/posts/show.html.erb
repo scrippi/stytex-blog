@@ -1,6 +1,23 @@
 <%- model_class = Post -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1><%=@post.subject %></h1>
+</div>
+
+<article>
+  <%= @post.content %>
+</article>
+
+<div>
+  <% @post.comments.each do |comment| %>
+    <div class="row">
+      <div class="col-xs-12">
+        <p>
+          <em><%= comment.created_at %>, by <%= comment.author_name %></em>
+          <%= comment.content %>
+        </p>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <dl class="dl-horizontal">
