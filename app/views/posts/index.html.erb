@@ -9,7 +9,7 @@
           <%= post.content %>
           <div class="post-short-footer">
             <p class="pull-left">
-              <i class="fa fa-calendar"></i> <%= post.created_at %>
+              <i class="fa fa-calendar"></i> <%= post.get_date.strftime "%d.%h %Y %H:%M:%S" %>
             </p>
             <p class="pull-right">
               <i class="fa fa-comment"></i> Comment

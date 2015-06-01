@@ -4,36 +4,47 @@
 </div>
 
 <article>
-  <%= @post.content %>
+  <%= @post.content.gsub("\r\n", "<br>").html_safe %>
+
+  <p>
+    <small><%= @post.get_date.strftime "%d.%h %Y %H:%M " %> by <em>author TODO</em></small>
+  </p>
 </article>
 
+<h2>comments</h2>
 <div>
   <% @post.comments.each do |comment| %>
     <div class="row">
       <div class="col-xs-12">
         <p>
-          <em><%= comment.created_at %>, by <%= comment.author_name %></em>
+          <em><%= comment.created_at.strftime "%d.%h %Y %H:%M:%S" %>, by <%= comment.author_name %></em>
+        </p>
+        <p>
           <%= comment.content %>
         </p>
+        <hr>
       </div>
     </div>
   <% end %>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:subject) %>:</strong></dt>
-  <dd><%= @post.subject %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:content) %>:</strong></dt>
-  <dd><%= @post.content %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:release_date) %>:</strong></dt>
-  <dd><%= @post.release_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:tags) %>:</strong></dt>
-  <dd><%= @post.tags %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @post.user_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:published) %>:</strong></dt>
-  <dd><%= @post.published %></dd>
-</dl>
+<div>
+  <%= form_for @post.comments.build do |f| %>
+      <%= f.hidden_field :post_id, :value => @post.id %>
+    <div class="form-group">
+      <%= f.text_area :content, :class => 'form-control', :placeholder => 'your comment..' %>
+    </div>
+      <div class="form-group">
+        <%= f.text_field :author_name, :class => 'form-control', :placeholder => 'Your name' %>
+      </div>
+      <div class="form-group">
+        <%= f.text_field :author_email, :type => 'email', :class => 'form-control', :placeholder => 'Your email' %>
+      </div>
+
+      <button class="btn btn-default">Add Comment</button>
+  <% end %>
+</div>
+
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               posts_path, :class => 'btn btn-default'  %>

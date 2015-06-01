@@ -29,3 +29,25 @@ _________
 03:29 PM: "built some basic comment functionality, now going to test it. Improved appearence a bit, too"
 03:31 PM: "a noobean mistake, no post_id at comments table...this just can't work"
 03:32 PM: "would write now the rerst, but must go..upload, push and see ya again"
+_________
+01:55 PM: Now from Israel, a bit of holiday...trying to proceed. It's good, I've decided to write a thoughts pad...I know were I was :D
+01:57 PM: Now really starting
+01:58 PM: Had wrong project open. Now started the server, want to see what's there
+02:00 PM: Comments are connected, but the show view of post must be prepared for now
+02:07 PM: Prototype of comment form written, now testing
+02:20 PM: Son wants some entertainment, but managed it to make a comment to be saved in database. But it's not associated yet.
+02:25 PM: added hidden field with "post_id", doesn't work. Added attr_accessor :post_id to post.rb, testing...
+02:30 PM: still not working...now going in with debugger
+02:34 PM: strange...post_id is not passed to controller...rechecking, if it written in the form...should be...
+02:35 PM: it's not...repairing...
+02:36 PM: F****, it doesn't wish to work at all :/ back in debuggin
+02:37 PM: it is filtering out the post_id...that means, I have no idea, HOW rails it wants to have....time for google
+03:00 PM: was googling, till grandma asked to go for a meal...there is no way of saing no! back to google
+03:09 PM: There is no attr_accessible in rails 4...it is now some permitting stuff in the posts_controller
+03:10 PM: That was it...now I want the comment controller to redirect to the post
+03:20 PM: Redirection works...now must go
+_________
+08:37 PM: Have not much time, making only some styles
+09:51 PM: It was like I've added strftime to the comment date, went away putting children into bed, and passed the params right one minute ago...it looks good :D...going on
+10:06 PM: Added root_url link to logo, some more style enhancements
+10:13 PM: Made a simple workaround to support newline-to-break functionality...now need to change the post form
