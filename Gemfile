@@ -43,3 +43,5 @@ gem 'spring',        group: :development
 
 gem 'immigrant'
 gem 'foreigner'
+
+gem 'devise'

@@ -42,6 +42,7 @@ _________
 02:35 PM: it's not...repairing...
 02:36 PM: F****, it doesn't wish to work at all :/ back in debuggin
 02:37 PM: it is filtering out the post_id...that means, I have no idea, HOW rails it wants to have....time for google
+_________
 03:00 PM: was googling, till grandma asked to go for a meal...there is no way of saing no! back to google
 03:09 PM: There is no attr_accessible in rails 4...it is now some permitting stuff in the posts_controller
 03:10 PM: That was it...now I want the comment controller to redirect to the post
@@ -51,3 +52,12 @@ _________
 09:51 PM: It was like I've added strftime to the comment date, went away putting children into bed, and passed the params right one minute ago...it looks good :D...going on
 10:06 PM: Added root_url link to logo, some more style enhancements
 10:13 PM: Made a simple workaround to support newline-to-break functionality...now need to change the post form
+10:20 PM: only little changes + github push...I am tired right now...will proceede :D
+_________
+10:49 PM: next day, lets see how far I come
+10:56 PM: played a bit with strptime, to understand how ruby makes it
+11:02 PM: ok, post form looks good. DateTime conversion works out of the box, like! made a prettier checkbox.
+11:07 PM: putted on devise into running, having now a authentication system
+11:20 PM: it is now needed, to be signed in, to create a new post
+11:25 PM: beautified it to a simple "force_session" method, inhered from application controller
+11:38 PM: rounded up force_session, to make it like I want. I have also tried to make the "confirmable" option, but it seems not to work as I excpet, yet. Will add a force_admin_session or something like this. Until yet, only authenticated users are able to post. Ready for today
