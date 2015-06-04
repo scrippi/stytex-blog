@@ -6,7 +6,7 @@
     <div class="row">
       <article class="col-12-xs">
           <h2>
-            <%= link_to post.subject, "blog/#{post.seo_name}" %>
+            <%= link_to post.subject, "posts/#{post.seo_name}" %>
             <% unless post.published %>
                 <span class="label label-default">not published</span>
             <% end %>

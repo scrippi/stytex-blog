@@ -74,3 +74,4 @@ _________
 07:38 PM: got a little window of time...now lets sort by time desc :)
 08:13 PM: brought my son to bed, built in sorting, paging, correct paths, and a mark of what is published
 08:25 PM: comments now also sorted, permission filter added
+08:45 PM: wanted to pull it...it failed...eaten some time. Now fixed a bug which caused "posts/new" to look for a post

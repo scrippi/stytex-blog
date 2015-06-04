@@ -2,10 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :comments
 
-  get 'blog/:seo_name' => 'posts#show'
+  resources :posts, :except => :show
   get 'posts/:seo_name' => 'posts#show'
-  resources :posts
-
   get 'blog/page/:page' => 'posts#index'
 
   root 'posts#index'
