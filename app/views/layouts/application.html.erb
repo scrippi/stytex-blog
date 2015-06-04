@@ -48,10 +48,10 @@
         <a class="navbar-brand" href="<%= root_url %>">StytexBlog</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
+            <!--<li><%= link_to "Link1", "/path1"  %></li>
             <li><%= link_to "Link2", "/path2"  %></li>
             <li><%= link_to "Link3", "/path3"  %></li>
-
+-->
             <% if user_signed_in? %>
             <li><%= link_to "Sign Out! [#{current_user.email}]", destroy_user_session_path, :method => :delete %></li>
             <% end %>
@@ -68,18 +68,37 @@
         </div>
         <div class="col-lg-3">
           <div class="well sidebar-nav">
-            <h3>Sidebar</h3>
-            <ul class="nav nav-list">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
-            </ul>
+            <h3>Filter by</h3>
+            <div role="tabpanel">
+
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Tags</a></li>
+                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Date</a></li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="home">
+                  <ul class="nav nav-list">
+                    <li><%= link_to "Link1", "/path1"  %></li>
+                    <li><%= link_to "Link2", "/path2"  %></li>
+                    <li><%= link_to "Link3", "/path3"  %></li>
+                  </ul>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="profile">...2</div>
+              </div>
+
+            </div>
           </div><!--/.well -->
         </div><!--/span-->
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2015</p>
+        <p>
+          &copy; stytex 2015 &bull; powered by <a href="https://github.com/scrippi/stytex-blog">stytex-blog</a>
+          &bull; <%= link_to "sign in", new_user_session_path %>
+        </p>
       </footer>
 
     </div> <!-- /container -->
