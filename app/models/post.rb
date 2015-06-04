@@ -4,4 +4,8 @@ class Post < ActiveRecord::Base
   def get_date
     (self.release_date.nil?) ? self.created_at : self.release_date
   end
+
+  def get_comments
+    self.comments.where(:permitted => true).order(created_at: :desc)
+  end
 end

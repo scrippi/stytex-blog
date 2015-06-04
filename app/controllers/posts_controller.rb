@@ -5,7 +5,19 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    offset = params[:page].nil? ? 0 : (params[:page].to_i - 1) * 5
+
+
+    @posts = Post
+                 .where(:published => true)
+                 .order(release_date: :desc)
+                 .limit(5)
+                 .offset(offset) unless user_signed_in?
+    @posts = Post
+                 .all
+                 .order(release_date: :desc)
+                 .limit(5)
+                 .offset(offset) if user_signed_in?
   end
 
   # GET /posts/1
@@ -34,7 +46,7 @@ class PostsController < ApplicationController
 
       respond_to do |format|
         if @post.save
-          format.html { redirect_to @post, notice: 'Post was successfully created.' }
+          format.html { redirect_to post_path(@post.seo_name), notice: 'Post was successfully created.' }
           format.json { render :show, status: :created, location: @post }
         else
           format.html { render :new }
@@ -50,7 +62,7 @@ class PostsController < ApplicationController
     if session_valid?
       respond_to do |format|
         if @post.update(post_params)
-          format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+          format.html { redirect_to post_path(@post.seo_name), notice: 'Post was successfully updated.' }
           format.json { render :show, status: :ok, location: @post }
         else
           format.html { render :edit }
@@ -87,5 +99,6 @@ class PostsController < ApplicationController
     def post_defaults(post)
       post.seo_name ||= post.subject.parameterize
       post.user ||= current_user
+      post.release_date ||= DateTime.now
     end
 end
