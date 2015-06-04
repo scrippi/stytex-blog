@@ -63,3 +63,5 @@ _________
 11:38 PM: rounded up force_session, to make it like I want. I have also tried to make the "confirmable" option, but it seems not to work as I excpet, yet. Will add a force_admin_session or something like this. Until yet, only authenticated users are able to post. Ready for today
 11:48 PM: could not stop, preparing my server for a first deploy :)
 11:49 PM: god damn it...its not "-no-rdoc -no-ri", it's "--no-rdoc...."
+_________
+10:46 AM: Deployment worked well, found a bug: "delete" is able for non signed in users...that's bad
