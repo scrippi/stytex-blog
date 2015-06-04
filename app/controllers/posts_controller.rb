@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Posts.find
+    @post = Post.find_by_seo_name(params[:seo_name])
   end
 
   # GET /posts/new
@@ -30,6 +30,7 @@ class PostsController < ApplicationController
   def create
     if session_valid?
       @post = Post.new(post_params)
+      post_defaults @post
 
       respond_to do |format|
         if @post.save
@@ -81,5 +82,10 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:subject, :content, :release_date, :tags, :user_id, :published)
+    end
+
+    def post_defaults(post)
+      post.seo_name ||= post.subject.parameterize
+      post.user ||= current_user
     end
 end

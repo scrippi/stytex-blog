@@ -68,3 +68,4 @@ _________
 11:03 AM: Generated devise components, marked up the login view, removed demo links, started to markup the sidebar
 11:17 AM: Now fixed the issue with session + destroy...now closing all the features for signed in users
 11:28 AM: I am not really fast ^__^. But I never said I am a rails contender, well...I don't like the back button...need breadcrumbs
+11:37 AM: Added breadcrumbs, new column name
