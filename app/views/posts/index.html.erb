@@ -18,7 +18,7 @@
               <i class="fa fa-calendar"></i> <%= post.get_date.strftime "%d.%h %Y %H:%M:%S" %>
             </p>
             <p class="pull-right">
-              <i class="fa fa-comment"></i> Comment
+              <i class="fa fa-user"></i> <%= post.user.username %> <em>(<%= post.user.first_name %> <%= post.user.last_name %>)</em>
             </p>
           </div>
       </article>

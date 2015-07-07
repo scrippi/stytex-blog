@@ -75,3 +75,10 @@ _________
 08:13 PM: brought my son to bed, built in sorting, paging, correct paths, and a mark of what is published
 08:25 PM: comments now also sorted, permission filter added
 08:45 PM: wanted to pull it...it failed...eaten some time. Now fixed a bug which caused "posts/new" to look for a post
+_________
+6. July....
+05:26 PM: a lot of time passed since my last commit....need some time to look what's have to be done
+05:42 PM: added link to user edit path, need to manage user names and so on for showing on post listing view
+_________
+7. July
+12:42 PM: fucked up with devise so far, but...it actually works, now the index shows posters username and more data
