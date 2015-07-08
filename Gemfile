@@ -46,3 +46,5 @@ gem 'foreigner'
 
 gem 'devise'
 gem "wysiwyg-rails"
+
+gem 'mysql2', group: :production
