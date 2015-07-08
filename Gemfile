@@ -45,3 +45,4 @@ gem 'immigrant'
 gem 'foreigner'
 
 gem 'devise'
+gem "wysiwyg-rails"

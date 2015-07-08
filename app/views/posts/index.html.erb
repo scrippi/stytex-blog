@@ -1,10 +1,11 @@
 <%- model_class = Post -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+<% content_for :page_heading do %><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
 </div>
+<% end %>
 <% @posts.each do |post| %>
-    <div class="row">
-      <article class="col-12-xs">
+    <div class="blog-post">
+      <article>
+        <div class="blog-post-title">
           <h2>
             <%= link_to post.subject, "posts/#{post.seo_name}" %>
             <% unless post.published %>
@@ -12,7 +13,9 @@
             <% end %>
           </h2>
 
-          <%= post.content.gsub("\r\n", "<br>").html_safe %>
+        </div>
+        <%= post.content.gsub("\r\n", "<br>").html_safe %>
+        <div class="blog-post-meta">
           <div class="post-short-footer">
             <p class="pull-left">
               <i class="fa fa-calendar"></i> <%= post.get_date.strftime "%d.%h %Y %H:%M:%S" %>
@@ -21,6 +24,7 @@
               <i class="fa fa-user"></i> <%= post.user.username %> <em>(<%= post.user.first_name %> <%= post.user.last_name %>)</em>
             </p>
           </div>
+        </div>
       </article>
     </div>
 <% end %>

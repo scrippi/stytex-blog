@@ -14,5 +14,14 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require froala_editor.min
 //= require_tree ../../../vendor/assets/javascripts
 //= require_tree .
+
+onPageReady = function () {
+    $.material.init();
+    setEditor();
+};
+$(document).ready(onPageReady);
+
+$(document).on('page:load', onPageReady);

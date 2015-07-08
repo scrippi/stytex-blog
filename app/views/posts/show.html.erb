@@ -47,19 +47,19 @@
         <%= f.text_field :author_email, :type => 'email', :class => 'form-control', :placeholder => 'Your email' %>
       </div>
 
-      <button class="btn btn-default">Add Comment</button>
+      <button class="btn btn-default btn-raised">Add Comment</button>
   <% end %>
 </div>
 
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
-              posts_path, :class => 'btn btn-default'  %>
+              posts_path, :class => 'btn btn-default btn-raised'  %>
 
 <% if user_signed_in? %>
 
 
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_post_path(@post), :class => 'btn btn-default' %>
+              edit_post_path(@post), :class => 'btn btn-warning btn-raised' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               post_path(@post),
               :method => 'delete',

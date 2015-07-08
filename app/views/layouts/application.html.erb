@@ -47,6 +47,9 @@
         </button>
         <a class="navbar-brand" href="<%= root_url %>">StytexBlog</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <form class="navbar-form navbar-left">
+            <input type="text" class="form-control col-lg-8" placeholder="Search">
+          </form>
           <ul class="nav navbar-nav">
             <!--<li><%= link_to "Link1", "/path1"  %></li>
             <li><%= link_to "Link2", "/path2"  %></li>
@@ -64,11 +67,22 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-9">
+        <% if content_for? :page_heading %>
+            <div class="blog-header">
+              <h1 class="blog-title">
+                <%=  yield :page_heading %>
+              </h1>
+            </div>
+        <% end %>
+        <div class="col-sm-8 blog-main">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-        <div class="col-lg-3">
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>About</h4>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+          </div>
           <div class="well sidebar-nav">
             <h3>Filter by</h3>
             <div role="tabpanel">
