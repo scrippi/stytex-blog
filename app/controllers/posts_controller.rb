@@ -7,6 +7,8 @@ class PostsController < ApplicationController
   def index
     offset = params[:page].nil? ? 0 : (params[:page].to_i - 1) * 5
 
+    @tags = tags
+    @dates = dates
 
     @posts = Post
                  .where(:published => true)
@@ -85,7 +87,13 @@ class PostsController < ApplicationController
   end
 
   private
+    def tags
+      Post.select("GROUP_CONCAT(tags) as alltags")[0].alltags.split(",").select {|x| x!=""}
+    end
 
+    def dates
+      Post.select('DATE(created_at) as date').order(created_at: :desc).group('date').map {|p| p.date}
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])

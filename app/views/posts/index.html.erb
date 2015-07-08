@@ -1,4 +1,34 @@
 <%- model_class = Post -%>
+
+<% content_for :sidebar_module do %>
+
+    <div class="well sidebar-nav">
+      <div role="tabpanel">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#tags" aria-controls="tags" role="tab" data-toggle="tab">Tags</a></li>
+              <li role="presentation"><a href="#dates" aria-controls="dates" role="tab" data-toggle="tab">Date</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane" id="tags">
+            <% @tags.each do |tag| %>
+                <a href="#"><%= tag %></a><br/>
+            <% end %>
+          </div>
+          <div role="tabpanel" class="tab-pane active" id="dates">
+            <% @dates.each do |date| %>
+                <a href="#"><%= date %></a><br/>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+    </div><!--/.well -->
+<% end %>
+
 <% content_for :page_heading do %><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
 </div>
 <% end %>

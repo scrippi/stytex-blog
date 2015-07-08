@@ -1,5 +1,6 @@
 <%- model_class = Post -%>
 
+
 <ol class="breadcrumb">
   <li><%= link_to "Home", root_path %></li>
   <li class="active"><%= @post.subject %></li>
@@ -13,7 +14,7 @@
   <%= @post.content.gsub("\r\n", "<br>").html_safe %>
 
   <p>
-    <small><%= @post.get_date.strftime "%d.%h %Y %H:%M " %> by <em>author TODO</em></small>
+    <small><%= @post.get_date.strftime "%d.%h %Y %H:%M " %> by <em>author <%= @post.user.username %></em></small>
   </p>
 </article>
 
