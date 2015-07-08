@@ -93,7 +93,8 @@ class PostsController < ApplicationController
     end
 
     def dates
-      Post.select('DATE(created_at) as date').order(created_at: :desc).group('date').map {|p| p.date}
+      posts = Post.select('DATE(created_at) as date').order(created_at: :desc).group('date')
+      posts.nil? ? [] : posts.map {|p| p.date}
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
