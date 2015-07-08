@@ -88,7 +88,8 @@ class PostsController < ApplicationController
 
   private
     def tags
-      Post.select("GROUP_CONCAT(tags) as alltags")[0].alltags.split(",").select {|x| x!=""}
+      post_select = Post.select("GROUP_CONCAT(tags) as alltags")
+      post_select.nil? ? [] : post_select[0].alltags.split(",").select {|x| x!=""}
     end
 
     def dates
